@@ -35,6 +35,8 @@ object GetTopNDailyProductsDF {
       agg(sum("order_item_subtotal").alias("daily_product_revenue")).
       orderBy($"order_date",$"daily_product_revenue".desc)
 
+    dailyProductRevenue.show(5)
+
     //val spec = Window.partitionBy("order_date")
     //val avgRevenue = avg($"daily_product_revenue").over(spec)
     //dailyProductRevenue.withColumn("avg_revenue", avgRevenue).show(false)
